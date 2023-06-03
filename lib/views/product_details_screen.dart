@@ -18,28 +18,15 @@ class DetailsScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-          automaticallyImplyLeading: true,
-          centerTitle: true,
-          backgroundColor: Colors.white,
-          title: const Text(
-            "Product Details",
-            style: TextStyle(color: Colors.black),
-          ),
-          elevation: 0,
-          leading: IconButton(
-              onPressed: () {
-                Get.offAll(() => HomeScreen());
-              },
-              icon: const Icon(
-                Icons.arrow_back_ios_new_outlined,
-                color: Colors.black,
-              )),
-          actions: const [
-            Icon(
-              Icons.shopping_cart_outlined,
-              color: Colors.black,
-            ),
-          ]),
+        iconTheme: IconThemeData(color: Colors.black),
+        elevation: 0,
+        backgroundColor: Colors.transparent,
+        centerTitle: true,
+        title: const Text(
+          "Product Details",
+          style: TextStyle(color: Colors.pink),
+        ),
+      ),
       body: SingleChildScrollView(
         child: Padding(
             padding: const EdgeInsets.only(top: 30, left: 30, right: 30),

@@ -1,10 +1,12 @@
 import 'package:buttons_tabbar/buttons_tabbar.dart';
+import 'package:e_commerce/controllers/product_controller.dart';
 import 'package:e_commerce/views/cart_screen.dart';
 import 'package:e_commerce/views/category_list_screen.dart';
 import 'package:e_commerce/views/product_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
+import 'package:get/get.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -14,7 +16,7 @@ class HomeScreen extends StatelessWidget {
     return DefaultTabController(
         length: 3,
         child: Container(
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
               gradient: LinearGradient(colors: [
             Color.fromARGB(255, 247, 240, 238),
             Color.fromARGB(255, 250, 213, 227)
@@ -25,7 +27,7 @@ class HomeScreen extends StatelessWidget {
                 elevation: 0,
                 backgroundColor: Colors.transparent,
                 centerTitle: true,
-                title: Text(
+                title: const Text(
                   "BuyMart",
                   style: TextStyle(color: Colors.pink),
                 ),
@@ -42,7 +44,7 @@ class HomeScreen extends StatelessWidget {
                             color: Colors.pink),
                         labelColor: Colors.white,
                         unselectedLabelColor: Colors.black,
-                        tabs: [
+                        tabs: const [
                           Tab(
                             text: "Products",
                           ),
@@ -54,15 +56,15 @@ class HomeScreen extends StatelessWidget {
                           ),
                         ]),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 20,
                   ),
                   Expanded(
                       child: Container(
                     child: TabBarView(children: [
-                      ProductScreen(),
-                      CategoryScreen(),
-                      CartScreen()
+                      const ProductScreen(),
+                      CategoryListScreen(),
+                      const CartScreen()
                     ]),
                   ))
                 ],

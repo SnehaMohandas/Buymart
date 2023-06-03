@@ -15,7 +15,7 @@ class Products {
   String title;
   double price;
   String description;
-  Category category;
+  String category;
   String image;
   Rating rating;
 
@@ -34,7 +34,7 @@ class Products {
         title: json["title"],
         price: json["price"]?.toDouble(),
         description: json["description"],
-        category: categoryValues.map[json["category"]]!,
+        category: json["category"]!,
         image: json["image"],
         rating: Rating.fromJson(json["rating"]),
       );

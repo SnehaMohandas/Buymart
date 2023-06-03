@@ -1,12 +1,18 @@
+import 'dart:math';
+
 import 'package:e_commerce/controllers/category_controller.dart';
+import 'package:e_commerce/controllers/product_controller.dart';
+import 'package:e_commerce/model/product_model.dart';
 import 'package:e_commerce/views/category_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:get/get.dart';
 
-class CategoryScreen extends StatelessWidget {
-  CategoryScreen({super.key});
+class CategoryListScreen extends StatelessWidget {
+  CategoryListScreen({
+    super.key,
+  });
   List images = [
     NetworkImage(
         "https://img.freepik.com/premium-photo/gamer-workspace_127657-18683.jpg?w=360"),
@@ -21,6 +27,8 @@ class CategoryScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var categoryController = Get.put(CategoryController());
+    var pdtsController = Get.find<ProductController>();
+    var pdts = pdtsController.productList;
     return Scaffold(
       backgroundColor: Colors.transparent,
       body: Obx(() {
@@ -32,7 +40,10 @@ class CategoryScreen extends StatelessWidget {
             itemBuilder: (context, index) {
               return Center(
                 child: GestureDetector(
-                  onTap: () => Get.to(() => CategorysScreen()),
+                  onTap: () {
+                    Get.to(() => CategoryScreen(
+                        categoryList: categoryController.categoryList[index]));
+                  },
                   child: Container(
                     color: Colors.transparent,
                     child: Stack(

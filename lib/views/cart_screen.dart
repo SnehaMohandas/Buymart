@@ -19,7 +19,7 @@ class CartScreen extends StatelessWidget {
         valueListenable: CartDB().cartListNotifier,
         builder: (BuildContext ctx, List<CartModel> newList, Widget? _) {
           return ListView.separated(
-              padding: const EdgeInsets.all(10),
+              padding: const EdgeInsets.only(right: 10, left: 10),
               itemBuilder: (ctx, index) {
                 final _value = newList[index];
                 return Card(
